@@ -10,7 +10,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -19,11 +18,31 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Mythical Creature Tracker',
         theme: ThemeData(
-          primarySwatch: Colors.deepPurple,
-        ),
-        initialRoute: CreatureListScreen.routeName,
+  useMaterial3: true,
+  colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+  fontFamily: 'Prompt',
+  textTheme: const TextTheme(
+    titleLarge: TextStyle(fontWeight: FontWeight.w700),
+    titleMedium: TextStyle(fontWeight: FontWeight.w600),
+    bodyLarge: TextStyle(fontWeight: FontWeight.w400),
+    bodyMedium: TextStyle(fontWeight: FontWeight.w400),
+  ),
+  appBarTheme: const AppBarTheme(
+    centerTitle: true,
+    elevation: 1,
+    titleTextStyle: TextStyle(
+      fontFamily: 'Prompt',
+      fontSize: 20,
+      fontWeight: FontWeight.w700,
+      color: Colors.white,
+    ),
+    backgroundColor: Color(0xFF6A5AE0),
+    foregroundColor: Colors.white,
+  ),
+),
+
+        home: const CreatureListScreen(),
         routes: {
-          CreatureListScreen.routeName: (_) => const CreatureListScreen(),
           AddCreatureScreen.routeName: (_) => const AddCreatureScreen(),
         },
       ),
